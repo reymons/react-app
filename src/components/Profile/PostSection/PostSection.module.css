@@ -1,0 +1,22 @@
+.wrapper {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 100px;
+}
+
+.wrapper form {
+  width: 40%;
+  text-align: right;
+}
+
+.wrapper input[type="text"] {
+  width: 100%;
+  font-size: 20px;
+}
+
+textarea {
+  width: 100%;
+  resize: vertical;
+  max-height: 100px;
+  min-height: 36px;
+}

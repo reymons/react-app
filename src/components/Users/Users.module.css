@@ -1,0 +1,16 @@
+.wrapper {
+  height: 100%;
+}
+
+.userWrapper {
+  height: 200px;
+}
+
+.selectedPage {
+  font-weight: bolder;
+}
+
+.wrapper span {
+  cursor: pointer;
+  margin-right: 10px;
+}

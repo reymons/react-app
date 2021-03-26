@@ -1,0 +1,17 @@
+.profile {
+  &__post-section {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 100px;
+  }
+  &__comment-form {
+    width: 40%;
+    text-align: right;
+  }
+  &__textarea {
+    width: 100%;
+    resize: vertical;
+    max-height: 100px;
+    min-height: 36px;
+  }
+}

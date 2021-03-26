@@ -1,0 +1,30 @@
+.wrapper {
+  min-height: 100px;
+  width: 60%;
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 20px;
+  padding: 10px;  
+  border-radius: 1.562em;
+}
+
+.userInfo {
+  display: flex;
+}
+
+.rightSide {
+  margin-left: auto;
+  align-self: flex-end;
+}
+
+.leftSide {
+  display: flex;
+}
+
+.userNameStatus {
+  margin-left: 15px;
+  align-self: flex-end;
+}
+
+#followBtn {
+  margin-top: 10px;
+}

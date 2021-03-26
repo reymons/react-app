@@ -1,0 +1,77 @@
+.messages-page {
+  background-color: blanchedalmond;
+  height: 100%;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  padding: 20px 0px;
+  box-sizing: border-box;
+
+  &__contacts {
+    border-right: 1px solid rgb(167, 167, 167);
+    width: 50%;
+    height: 100%;
+  }
+
+  &__dialogs {
+    padding-left: 20px;
+    position: relative;
+    width: 50%;
+    height: 100%;
+  }
+
+  &__message-form {
+    position: absolute;
+    bottom: 0px;
+  }
+
+  &__dialog {
+    min-width: 70%;
+    display: flex;
+    background-color: white;
+    border-radius: 50px;
+    padding: 0 5px;
+    margin-bottom: 20px;
+  }
+}
+
+.dialog {
+
+  &__avatar {
+    align-self: center;
+  }
+
+  &__message {
+    margin-left: 10px;
+    padding-top: 5px;
+  }
+}
+
+
+.contacts__contact {
+  width: 90%;
+  position: relative;
+  margin-bottom: 20px;
+
+  button {
+    position: absolute;
+    right: 0;
+  }
+
+  @media screen and (max-width: 1000px) {
+    button {
+      position: static;
+      display: block;
+    }
+  }
+
+  a:hover {
+    color: rgba(236, 77, 77, 0.445);
+  }
+
+  &_active {
+    color: rgb(16, 119, 119);
+  }
+}
+
+
