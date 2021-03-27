@@ -2,7 +2,7 @@
 
 ## Technology stack:
 1) Redux, react-redux, redux-thunk, redux-ducks, redux-form (obsolete, i know)
-2) hooks, reselect
+2) hooks (useState, useEffect), reselect
 3) SCSS
 
 ## How to start
