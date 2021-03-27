@@ -12,7 +12,7 @@ import { compose } from 'redux';
 import {
   getPageSize, getUsers,
   getTotalUsersCount, getCurrentPage,
-  getIdsInFollowingProcess
+  getIdsInFollowingProcess,
 } from '../../redux/usersSelector';
 
 
@@ -46,8 +46,6 @@ const mapStateToProps = (state) => {
     idsInFollowingProcess: getIdsInFollowingProcess(state),
   }
 }
-
-
 
 export default compose(
   connect(mapStateToProps, {
