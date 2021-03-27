@@ -51,3 +51,4 @@ export const authAPI = {
       .then(res => res.data);
   }
 }
+

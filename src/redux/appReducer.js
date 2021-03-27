@@ -17,7 +17,7 @@ const appReducer = (state = initialState, action) => {
 
 const initialize = () => ({ type: INITIALIZE_APP })
 
-export const initializeApp = () => async (dispatch) => {
+export const initializeApp = () => (dispatch) => {
   dispatch(getAuthInfo())
     .then(() => dispatch(initialize()));
 }

@@ -1,0 +1,1 @@
+export const isProfileInitialized = (state) => state.profilePage.initialized;

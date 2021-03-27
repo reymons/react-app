@@ -1,10 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Profile from './Profile';
-import { setUserProfile, getProfile, getStatus, updateStatus } from '../../redux/profileReducer';
+import { updateStatus, getStatus, getProfile } from '../../redux/profileReducer';
 import { withRouter } from 'react-router-dom';
 import withAuthRedirect from '../../hoc/withAuthRedirect';
 import { compose } from 'redux';
+import Preloader from '../common/Preloader/Preloader';
+import { isProfileInitialized } from '../../redux/profileSelectors';
 // import withConnect from '../../hoc/withConnect';
 
 class ProfileContainer extends React.Component {
@@ -13,6 +15,7 @@ class ProfileContainer extends React.Component {
     if (!userId) {
       userId = this.props.authorizedId;
     }
+
     this.props.getProfile(userId);
     this.props.getStatus(userId);
   }
@@ -28,13 +31,14 @@ const mapStateToProps = (state) => {
     isAuth: state.auth.isAuth,
     authorizedId: state.auth.userId,
     status: state.profilePage.status,
+    initialized: isProfileInitialized(state)
   }
 }
 
 export default compose(
   withAuthRedirect,
   withRouter,
-  connect(mapStateToProps, { setUserProfile, getProfile, getStatus, updateStatus }),
+  connect(mapStateToProps, { updateStatus, getStatus, getProfile }),
 )(ProfileContainer);
 
 // MY CONNECT (UNSUCCEEDED)

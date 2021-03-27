@@ -3,8 +3,10 @@ import { profileAPI } from "../api/api";
 const ADD_COMMENT = 'ADD-COMMENT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_USER_STATUS = "SET_USER_STATUS";
+// const INITIALIZE_PROFILE = "INITIALIZE_PROFILE";
 
 const initialState = {
+  initialized: false,
   commentData: [
     {
       avatar: 'https://w-dog.ru/wallpapers/6/1/318392262078439/art-ryuuka-nagare-koshka-morda-pryachetsya-pokryvalo.jpg',
@@ -26,7 +28,7 @@ const initialState = {
     },
   ],
   profile: null,
-  status: ""
+  status: null,
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -49,6 +51,9 @@ const profileReducer = (state = initialState, action) => {
     case SET_USER_STATUS: {
       return { ...state, status: action.status };
     }
+    // case INITIALIZE_PROFILE: {
+    //   return { ...state, initialized: true }
+    // }
     default:
       return state;
   }
@@ -56,17 +61,19 @@ const profileReducer = (state = initialState, action) => {
 
 export const addComment = (comment) => ({ type: ADD_COMMENT, comment })
 
-export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile })
+const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile })
 
-export const setStatus = (status) => ({ type: SET_USER_STATUS, status })
+const setStatus = (status) => ({ type: SET_USER_STATUS, status })
+
+// const initialize = () => ({ type: INITIALIZE_PROFILE })
 
 export const getProfile = (userId) => (dispatch) => {
-  profileAPI.getProfile(userId)
+  return profileAPI.getProfile(userId)
     .then(data => dispatch(setUserProfile(data)));
 }
 
 export const getStatus = (userId) => (dispatch) => {
-  profileAPI.getStatus(userId)
+  return profileAPI.getStatus(userId)
     .then(status => dispatch(setStatus(status)));
 }
 
@@ -78,5 +85,10 @@ export const updateStatus = (status) => (dispatch) => {
       }
     })
 }
+
+// export const initializeProfile = (userId) => (dispatch) => {
+//   Promise.all([dispatch(getProfile(userId)), dispatch(getStatus(userId))])
+//     .then(() => dispatch(initialize()));
+// }
 
 export default profileReducer;
